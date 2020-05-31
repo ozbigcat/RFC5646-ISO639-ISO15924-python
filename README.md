@@ -69,7 +69,27 @@ Source: [iana.org](https://www.iana.org/assignments/language-subtag-registry/lan
 * The number of records each entry can vary. E.g., multiple descriptions, additionals field, etc
 
 ## How to use
-* The easiest is copy and paste the content into your file. If it is too much, just include it as a module.
+* The easiest is copy and paste the content into your file.
+* If it is too much, just include it as a module, for example:
+    * copy RFC5646_language.py into your current directory
+    * Add as follows to display the description of the language tag:
+    ```python
+        from .RFC5646_language import RFC5646_language
+        ...
+        ...
+
+        if "-" in self.request.LANGUAGE_CODE:
+            lang = self.request.LANGUAGE_CODE.split("-")[0]
+        else:
+            lang = self.request.LANGUAGE_CODE
+
+        if lang in RFC5646_language:
+            requested_language = RFC5646_language[lang]
+        else:
+            self.request.LANGUAGE_CODE = "en"  # default to English
+        ...
+        ...
+    ```
 * If you use other programming languages than python, copy-paste the content in a text editor to reformat according to the language requirement.
 
 ### To update the record
