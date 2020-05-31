@@ -9,9 +9,10 @@ You can see the full text here: [https://tools.ietf.org/html/rfc5646](https://to
 ## TL;DR; RFC5646 summary
 The language tag based on this RFC can be very complex. While `en-US` is simple enough to mean 'English as used in the United States", it can get more complicated such as: `hy-Latn-IT-arevela` which means 'Eastern Armenian language written in Latin script, as used in Italy'
 
-The tag is designed to have a maximum of 35 character (para 4.4.1)
+The tag is designed to have a maximum of 35 character (para 4.4.1):
+```
 [language:8]-[script:5]-[region:4]-[variant1:9]-[variant2:9]
-
+```
 Internet Assigned Number Authority maintains the official record of all approved language tags ([iana](https://www.iana.org/)).
 
 Extracted from those official record are these 7 python files that contain the tag and the description of all the language tag. While the typical application probably deals with the "language tag" section only, you might need some other part as well.
